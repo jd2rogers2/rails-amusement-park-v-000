@@ -1,4 +1,4 @@
-class Ride < ActiveRecord::Base
+ class Ride < ActiveRecord::Base
   belongs_to :user
   belongs_to :attraction
 
@@ -10,10 +10,10 @@ class Ride < ActiveRecord::Base
     elsif user.height < attraction.min_height
       "Sorry. You are not tall enough to ride the #{attraction.name}."
     else
-      user.tickets -= attraction.tickets
-      user.nausea += attraction.nausea_rating
-      user.happiness += attraction.happiness_rating
-      user.save
+      tix = user.tickets -= attraction.tickets
+      bleh = user.nausea += attraction.nausea_rating
+      smiles = user.happiness += attraction.happiness_rating
+      user.update(tickets: tix, nausea: bleh, happiness: smiles)
     end
   end
 end

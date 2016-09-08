@@ -17,6 +17,15 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = current_user
+    @attraction = Attraction.find_by(id: params[:user][:attraction_id])
+    @ride = Ride.create(user_id: @user.id, attraction_id: @attraction.id)
+    if @ride.take_ride.class == String
+      flash[:message] = @ride.take_ride
+    else
+      flash[:message] = "Thanks for riding the #{@attraction.name}!"
+    end
+    redirect_to user_path(@ride.user)
   end
 
   def index

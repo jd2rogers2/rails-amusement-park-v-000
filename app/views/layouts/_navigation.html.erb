@@ -5,7 +5,7 @@
 <%# end %>
 
 <% if is_logged_in?(session) %>
-  <%= link_to "Log Out", session_path, method: "delete" %>
+  <%= link_to "Log Out", session_path(User.find_by(id: session[:user_id])), method: "delete" %>
 <% end %><br><br>
 
 <%= link_to "See attractions", attractions_path %>

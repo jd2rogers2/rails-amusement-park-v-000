@@ -1,1 +1,3 @@
-flash errors
+<%= flash.each do |key, value| %>
+  <%= value if value.class == String %>
+<% end %>

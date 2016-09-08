@@ -3,6 +3,11 @@
 
 <ul>
   <% @attractions.each do |att| %>
-    <li>Go on <%= link_to att.name, attraction_path(att), id: "#{att.name}" %></li>
+    <% if current_user(session).admin? %>
+      <li><%= link_to "Show #{att.name}", attraction_path(att) %></li>
+    <% else %>
+      <li><%= link_to "Go on #{att.name}", attraction_path(att), id: "#{att.name}" %></li>
+    <% end %>
   <% end %>
+  <li><%= link_to "New Attraction", new_attraction_path if current_user(session).admin? %></li>
 </ul>
