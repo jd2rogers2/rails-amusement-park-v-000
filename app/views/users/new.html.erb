@@ -1,0 +1,22 @@
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+
+<%= form_for @user do |u| %>
+  <%= u.label :name %>
+  <%= u.text_field :name %><br>
+  <%= u.label :height %>
+  <%= u.text_field :height %><br>
+  <%= u.label :happiness %>
+  <%= u.text_field :happiness %><br>
+  <%= u.label :nausea %>
+  <%= u.text_field :nausea %><br>
+  <%= u.label :tickets %>
+  <%= u.text_field :tickets %><br>
+  <%= u.label :password %>
+  <%= u.text_field :password %><br>
+  <%= u.label :admin %>
+  <%= u.check_box :admin %><br>
+  <%= u.submit %>
+<% end %>
+
+check_box(object_name, method, options = {}, checked_value = "1", unchecked_value = "0")

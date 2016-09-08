@@ -23,7 +23,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-           <!--  nav here -->
+            <%= render "layouts/navigation" %>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -32,6 +32,11 @@
     <!-- content -->
     <div class="container"  role="main">
       <%= yield %>
+    </div>
+
+    <!-- errors partial -->
+    <div class="errors">
+      <%= render "layouts/errors" %>
     </div>
 
   </body>
